@@ -1,2 +1,2 @@
 # Palvelin-projekti
-Projekti, jossa teemme Saltilla Windows 11 mikrofoonin ääniasetuksista idempotettisia.
+Projekti, jossa teemme Saltilla Windows 11 mikrofonin ääniasetuksista idempotettisia.
