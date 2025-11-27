@@ -2,6 +2,16 @@
 Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi.
 
 
+## Tiivistelmä / projektinkulku
+
+Virtualbox asennus
+Vagrant asennus
+Salt asennus
+Git asennus ja repon kloonaus
+Palomuurin konfigurointi
+topfile
+lopputestaus
+
 ## Uuden virtuaalikoneen luonti vagrantilla
 
 (Miten VirtualBox)
@@ -81,3 +91,9 @@ Nyt voit enabloida palomuurin:
 ```
 sudo ufw enable
 ```
+
+
+## Lähteet
+
+Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
+Tero Karvisen oppimateriaalit
