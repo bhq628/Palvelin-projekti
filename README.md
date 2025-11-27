@@ -5,12 +5,16 @@ Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi.
 ## Tiivistelmä / projektinkulku
 
 Virtualbox asennus
+
 Vagrant asennus
+
 Salt asennus
+
 Git asennus ja repon kloonaus
+
 Palomuurin konfigurointi
-topfile
-lopputestaus
+
+topfile ja lopputestaus
 
 ## Uuden virtuaalikoneen luonti vagrantilla
 
