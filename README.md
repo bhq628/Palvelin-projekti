@@ -63,3 +63,17 @@ Kloonataan Github repo koneeseen:
 ```
 git clone git@github.com:bhq628/Palvelin-projekti.git
 ```
+
+Asenna palomuuri:
+
+```
+sudo apt -y install ufw
+```
+
+HUOMIO! ENNEN KUIN ENABLOIT PALOMUURIA, SALLI PORTTI 22 TCP SSH YHTEYTTÄ VARTEN:
+
+```
+sudo ufw allow 22/tcp comment 'SSH'
+```
+
+
