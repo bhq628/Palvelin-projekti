@@ -78,6 +78,12 @@ Kloonataan Github repo koneeseen:
 git clone git@github.com:bhq628/Palvelin-projekti.git
 ```
 
+Nyt voidaan asentaa myos palomuurin Salt repolla:
+
+```
+sudo salt-call --local --file-root /Palvelinten-hallinta/srv/salt/ state.apply ufw
+```
+
 Asenna palomuuri:
 
 ```
