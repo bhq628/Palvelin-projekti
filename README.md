@@ -4,6 +4,12 @@ Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi.
 
 ## Uuden virtuaalikoneen luonti vagrantilla
 
+(Miten VirtualBox)
+(Miten Vagrant asennettiin?)
+
+Ensin Powershellillä hakemistoon C:\User\vagrantprojeks\ (ei ole oikea polku ehkä)
+
+
 ```
 init vagrant debian/bookworm64
 vagrant up
@@ -26,4 +32,6 @@ curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/downl
 
 sudo apt update
 sudo apt install salt-minion
+
+sudo systemctl enable salt-minion
 ```
