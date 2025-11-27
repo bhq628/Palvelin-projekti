@@ -31,6 +31,7 @@ curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltPr
 curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
 
 sudo apt update
+sudo apt install salt-common
 sudo apt install salt-minion
 
 sudo systemctl enable salt-minion
