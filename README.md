@@ -2,6 +2,20 @@
 Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi.
 
 
+## Tiivistelmä / projektinkulku
+
+Virtualbox asennus
+
+Vagrant asennus
+
+Salt asennus
+
+Git asennus ja repon kloonaus
+
+Palomuurin konfigurointi
+
+topfile ja lopputestaus
+
 ## Uuden virtuaalikoneen luonti vagrantilla
 
 (Miten VirtualBox)
@@ -63,3 +77,27 @@ Kloonataan Github repo koneeseen:
 ```
 git clone git@github.com:bhq628/Palvelin-projekti.git
 ```
+
+Asenna palomuuri:
+
+```
+sudo apt -y install ufw
+```
+
+HUOMIO! ENNEN KUIN ENABLOIT PALOMUURIA, SALLI PORTTI 22 TCP SSH YHTEYTTÄ VARTEN:
+
+```
+sudo ufw allow 22/tcp comment 'SSH'
+```
+
+Nyt voit enabloida palomuurin:
+
+```
+sudo ufw enable
+```
+
+
+## Lähteet
+
+Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
+Tero Karvisen oppimateriaalit
