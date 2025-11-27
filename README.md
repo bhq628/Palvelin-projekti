@@ -76,4 +76,8 @@ HUOMIO! ENNEN KUIN ENABLOIT PALOMUURIA, SALLI PORTTI 22 TCP SSH YHTEYTTÄ VARTEN
 sudo ufw allow 22/tcp comment 'SSH'
 ```
 
+Nyt voit enabloida palomuurin:
 
+```
+sudo ufw enable
+```
