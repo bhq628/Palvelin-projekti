@@ -35,4 +35,6 @@ sudo apt install salt-common
 sudo apt install salt-minion
 
 sudo systemctl enable salt-minion
+
+sudo systemctl status salt-minion.service
 ```
