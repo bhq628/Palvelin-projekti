@@ -33,8 +33,15 @@ curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/downl
 sudo apt update
 sudo apt install salt-common
 sudo apt install salt-minion
-
 sudo systemctl enable salt-minion
-
-sudo systemctl status salt-minion.service
+sudo systemctl restart salt-minion
 ```
+
+Yhdellä koneessa se jumittui, joten suljettiin ja käynnistettiin salt-minion uudelleen:
+
+```
+sudo systemctl stop salt-minion
+sudo systemctl start salt-minion
+```
+
+
