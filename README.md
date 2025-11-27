@@ -44,6 +44,11 @@ sudo systemctl stop salt-minion
 sudo systemctl start salt-minion
 ```
 
+Asennetaan git:
+
+```
+sudo apt -y install git
+```
 Otettiin ssh julkinen avain, jotta päästiin git repoon:
 
 ```
