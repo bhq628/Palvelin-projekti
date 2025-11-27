@@ -58,7 +58,7 @@ cat .ssh/id_rsa.pub
 
 Kopitoitiin julkinen avain gitin SSH avaimiin. Tulostetaan avain kohtaan Settings -> SSH and GPG keys -> New SSH Key.
 
-Linkitettiin Vagrant-kone Github repoon:
+Kloonataan Github repo koneeseen:
 
 ```
 git clone git@github.com:bhq628/Palvelin-projekti.git
