@@ -25,7 +25,7 @@ Ensin Powershellillä hakemistoon C:\User\vagrantprojeks\ (ei ole oikea polku eh
 
 
 ```
-init vagrant debian/bookworm64
+vagrant init debian/bookworm64
 vagrant up
 vagrant ssh
 ```
@@ -76,6 +76,12 @@ Kloonataan Github repo koneeseen:
 
 ```
 git clone git@github.com:bhq628/Palvelin-projekti.git
+```
+
+Nyt voidaan asentaa myos palomuurin Salt repolla (suhteellinen polku):
+
+```
+sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply ufw
 ```
 
 Asenna palomuuri:
