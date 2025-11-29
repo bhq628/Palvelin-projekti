@@ -3,4 +3,4 @@ ufw_allow_ssh:
     - name: ufw allow ssh
     - unless: ufw status | grep -q "22/tcp.*ALLOW"
     - require:
-      - cmd: ufw_enable
+      - pkg : ufw
