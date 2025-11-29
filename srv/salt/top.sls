@@ -4,4 +4,4 @@ base:
     - ufw_enable
     - ufw_service
     - ufw_default_in
-    - ufw_default_out
+    - ufw_default_ou
