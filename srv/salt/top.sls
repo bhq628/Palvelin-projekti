@@ -5,3 +5,4 @@ base:
     - ufw_service
     - ufw_default_in
     - ufw_default_out
+    - ufw_allow_ssh
