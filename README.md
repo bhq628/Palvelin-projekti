@@ -109,7 +109,7 @@ Ongelmat:
 
 
 
-ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet sudoeditillä muokata tiedostoja, ohitettiin ongelma käyttämällä nano tekstieditoria.
+ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja, ohitettiin ongelma käyttämällä nano tekstieditoria.
 
 ufw_enablen kanssa tuli virhe. Huomattiin, että oli laitettu enable 2 kertaa.
 
