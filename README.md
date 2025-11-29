@@ -103,6 +103,17 @@ sudo ufw enable
 ```
 
 
+
+
+Ongelmat:
+
+
+
+ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja. Yritettiin korjata ongelma muokkaamalla kansioiden oikeuksia, mutta se ei korjanut ongelmia ja jopa esti pääsyn salt hakemistolle. Poistettiin repo koneesta ja kloonattiin uudelleen. Sudoeditin ongelma ohitettiin käyttämällä nano tekstieditoria.
+
+ufw_enablen kanssa tuli virhe. Huomattiin, että oli laitettu enable 2 kertaa.
+
+
 ## Lähteet
 
 Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
