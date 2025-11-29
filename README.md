@@ -109,7 +109,7 @@ Ongelmat:
 
 
 
-ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja, ohitettiin ongelma käyttämällä nano tekstieditoria.
+ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja. Yritettiin korjata ongelma muokkaamalla kansioiden oikeuksia, mutta se ei korjanut ongelmia ja jopa esti pääsyn salt hakemistolle. Poistettiin repo koneesta ja kloonattiin uudelleen. Sudoeditin ongelma ohitettiin käyttämällä nano tekstieditoria.
 
 ufw_enablen kanssa tuli virhe. Huomattiin, että oli laitettu enable 2 kertaa.
 
