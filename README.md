@@ -81,7 +81,7 @@ git clone git@github.com:bhq628/Palvelin-projekti.git
 Nyt voidaan asentaa myos palomuurin Salt repolla (suhteellinen polku):
 
 ```
-sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply ufw
+sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply
 ```
 
 Asenna palomuuri:
