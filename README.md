@@ -114,6 +114,12 @@ ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luo
 ufw_enablen kanssa tuli virhe. Huomattiin, että oli laitettu enable 2 kertaa.
 
 
+Jatkettiin tekemään template master ja minion koneelle:
+
+Asentaa Dedbianin ja niihin Saltin että gitin.
+
+Ne kommunikoivat toisten kanssa, pitää lähettää minionin avain masterille `sudo systemctlr restart minion.service` minion koneella ja hyväksyä masterilla `sudo salt-key -A`.
+
 ## Lähteet
 
 Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
