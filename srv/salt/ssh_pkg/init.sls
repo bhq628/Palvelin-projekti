@@ -1,0 +1,2 @@
+ssh:
+  pkg.installed

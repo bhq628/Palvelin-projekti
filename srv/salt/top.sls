@@ -1,5 +1,6 @@
 base:
   '*':
+    - ssh_pkg
     - ufw_allow_ssh
     - ufw_pkg
     - ufw_enable
