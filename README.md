@@ -207,7 +207,7 @@ Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key
 
 Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki
 
-Kloonataan repo master koneelle git clone git@github.com:bhq628/Palvelin-projekti.git
+Kloonataan repo master koneelle `git clone git@github.com:bhq628/Palvelin-projekti.git`
 
 
 
