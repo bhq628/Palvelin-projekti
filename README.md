@@ -195,7 +195,7 @@ Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin
 
 Kirjaudutaan minion koneelle: 
 
-`vagrant ssh minion` 
+`vagrant ssh minion`
 
 Käynnistetään salt-minion.service:
 
@@ -206,6 +206,7 @@ Nyt master koneella voidaan hyväksyä minion avain.
 Kirjaudutaan masterille ja hyväksytään minion avain:
 
 ```
+exit
 vagrant ssh master
 sudo salt-key -A
 ```
