@@ -130,7 +130,7 @@ Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key.
 
 Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki:
 
-<img width="572" height="498" alt="Näyttökuva (77)" src="https://github.com/user-attachments/assets/39e31e0d-3f13-4221-9c45-ca377b9b1aaa" />
+<img width="300" height="300" alt="Näyttökuva (77)" src="https://github.com/user-attachments/assets/39e31e0d-3f13-4221-9c45-ca377b9b1aaa" />
 
 
 Kloonataan git repo master koneelle 
@@ -164,7 +164,7 @@ sudo salt '*' state.apply    #moduulin ajo minioniin
 ```
 
 
-Kehitettävää:
+## Kehitettävää:
 
 GitFS toiminto, niin voi ajata moduulin suoraan git reposta minioniin.
 
@@ -181,13 +181,11 @@ Idempotentin testauksessa toisellä käyttäjällä tuli virheilmoitus:
 ```
 salt-minion:
 
-
     Minion did not return. [No response]
 
     The minions may not have all finished running and any remaining minions will return upon completion. To look up the return data for this job later, run the following command:
  
     salt-run jobs.lookup_jid 20251201134850839736
- 
 ```
 
 Ei ollut selvä jos virhe korjaantui ajan myötä vai käyttäjän `sudo apt update` komennon jälkeen. Ei saatu samaa virheilmoitusta jatkuvilla testauksilla.
