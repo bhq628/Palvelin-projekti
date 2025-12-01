@@ -1,6 +1,6 @@
 # Palvelin-projekti
-Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi ja keskitetyn hallinnan master koneella.
 
+Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi ja keskitetyn hallinnan master koneella.
 
 ## Vaatimukset ja asennusohjeet
 
@@ -107,6 +107,92 @@ Nyt voit enabloida palomuurin:
 ```
 sudo ufw enable
 ```
+
+
+
+
+## Helppo ja nopeampi tapa
+
+Vagrant skriptillä voidaan kätevästi luoda master minion arkkitehtuuri.
+
+Skriptiin on luotu valmiit asetukset ja hyvän alun tähän projektiin.
+
+Tämä voidaan lisätä Vagrantfile tiedostoon:
+
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$master_script = <<MASTERSCRIPT
+set -o verbose
+sudo apt update
+sudo mkdir -p /etc/apt/keyrings/
+sudo apt -y install curl
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public \ | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources \ | sudo tee /etc/apt/sources.list.d/salt.sources
+sudo apt update
+sudo apt -y install salt-master salt-common
+sudo systemctl enable salt-master
+sudo systemctl restart salt-master
+sudo apt -y install git
+sudo apt -y install ufw
+sudo ufw allow 22/tcp
+sudo ufw allow 4505/tcp
+sudo ufw allow 4506/tcp
+MASTERSCRIPT
+
+$minion_script = <<MINIONSCRIPT
+set -o verbose
+sudo apt update
+sudo mkdir -p /etc/apt/keyrings/
+sudo apt -y install curl
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public \ | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources \ | sudo tee /etc/apt/sources.list.d/salt.sources
+sudo apt update
+sudo apt -y install salt-minion salt-common
+echo "master: 192.168.88.10" | sudo tee /etc/salt/minion
+sudo systemctl enable salt-minion
+sudo systemctl restart salt-minion
+MINIONSCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "shared/", "/home/vagrant/shared", create: true
+  config.vm.box = "debian/bookworm64"
+    
+  # Salt Master machine
+  config.vm.define "master" do |master|
+    master.vm.hostname = "salt-master"
+    master.vm.network "private_network", ip: "192.168.88.10"
+    master.vm.provision "shell", inline: $master_script
+
+    master.vm.provider "virtualbox" do |vb|
+      vb.memory = 2048 
+      vb.cpus = 2  
+    end
+  end
+
+  # Salt Minion machine
+  config.vm.define "minion" do |minion|
+    minion.vm.hostname = "salt-minion"
+    minion.vm.network "private_network", ip: "192.168.88.11"
+    minion.vm.provision "shell", inline: $minion_script
+
+    minion.vm.provider "virtualbox" do |vb|
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+  end
+end
+```
+
+Lisättyä skriptin Vagrantfile tiedostoon, ajetaan se `vagrant up` komennolla.
+
+Nyt on master ja minion kone luotu. 
+
+Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin lisää minion koneita.
+
+Koneet kommunikoivat toistensa kanssa, nyt vaaditaan minion avaimen hyväksymisen master koneella.
 
 
 
