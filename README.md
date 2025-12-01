@@ -199,6 +199,16 @@ Nyt master koneella voidaan hyväksyä minion avain.
 
 Kirjaudutaan masterille `vagrant ssh master` ja hyväksytään minion avain `sudo salt-key -A`
 
+Git on jo valmiina asennettu skriptin kautta.
+
+Git repon kloonaamista varten tarvitaan ssh julkinen avain `ssh-keygen` ja sitten kopioidaan julkinen avain `cat .ssh/id_rsa.pub`
+
+Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key
+
+Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki
+
+Kloonataan repo master koneelle git clone git@github.com:bhq628/Palvelin-projekti.git
+
 
 
 ## Ongelmat:
