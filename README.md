@@ -257,10 +257,15 @@ sudo salt '*' state.apply    #moduulin ajo minioniin
 
 Kehitettävää:
 
-GitFS toiminto, niin voi ajata moduulin suoraan git reposta minioniin
+GitFS toiminto, niin voi ajata moduulin suoraan git reposta minioniin.
 
+Vähemmän cmd.run tiloja niin moduuli olisi nopempia ajamaan.
 
 ## Ongelmat:
+
+Tuli ongelmia gitin kanssa. Toisella käyttäjällä ei ollut oikeuksia muokata tiedostoja. Korjattiin ongelma muokkaamalla käyttöoikeuksia `chmod` komennolla.
+
+ufw_enable-moduulissa tuli virheitä. Huomattiin, että moduuliin oli kirjoitettu enable 2 kertaa. Korjattiin poistamalla ylimääräinen enable komento.
 
 
 
