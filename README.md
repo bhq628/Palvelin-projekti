@@ -239,6 +239,8 @@ Nyt voidaan ajata moduuli minionille
 
 `sudo salt '*' state.apply`
 
+Moduuli varmistaa, että ssh ja palomuuri on asennettu. Se sallii myös 
+
 ## Keskitetty hallitus tiivistelmä:
 
 ```
@@ -288,16 +290,103 @@ Ei ollut selvä jos virhe korjaantui ajan myötä vai käyttäjän `sudo apt upd
 
 
 
-ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja. Yritettiin korjata ongelma muokkaamalla kansioiden oikeuksia, mutta se ei korjanut ongelmia ja jopa esti pääsyn salt hakemistolle. Poistettiin repo koneesta ja kloonattiin uudelleen. Sudoeditin ongelma ohitettiin käyttämällä nano tekstieditoria.
 
-ufw_enablen kanssa tuli virhe. Huomattiin, että oli laitettu enable 2 kertaa.
+## Raporttiosuus
+
+Luotiin GitHub repo, jotta pystyimme tekemään projektia yhdessä versionhallinnalla.
+
+Ennen kuin tehtiin Vagrantilla valmis skripti alustalle, tehtiin aluksi käsin pelkkä minion-kone, mitä myöhemmin työstettiin skriptiin:
+
+```
+vagrant init debian/bookworm64
+vagrant up
+vagrant ssh
+```
+
+Sinne asennettiin salt-minion:
+
+```
+sudo mkdir -p /etc/apt/keyrings/
+sudo apt -y install curl
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
+sudo apt update
+sudo apt -y install salt-common
+sudo apt -y install salt-minion
+sudo systemctl enable salt-minion
+sudo systemctl restart salt-minion
+```
+
+Yhdellä koneella se jumittui, joten suljettiin ja käynnistettiin salt-minion uudelleen:
+
+```
+sudo systemctl stop salt-minion
+sudo systemctl start salt-minion
+```
+
+Asennettiin git:
+
+```
+sudo apt -y install git
+```
+
+Otettiin ssh julkinen avain, jotta päästiin Git repoon:
+
+```
+ssh-keygen
+cat .ssh/id_rsa.pub
+```
+Kloonattiin Github repo koneeseen:
+
+```
+git clone git@github.com:bhq628/Palvelin-projekti.git
+```
+
+Asennettiin palomuuri:
+
+`sudo apt -y install ufw`
+
+Avattiin portti 22 palomuurille:
+
+`sudo ufw allow 22/tcp`
+
+Enabloitiin palomuuri:
+
+`sudo ufw enable`
+
+Palomuurin asennus ja portin enabloiminen päätyi ylimääräiseksi työksi, koska luotiin myöhemmin moduulit jotka tekivät samat komennot.
+
+Luotiin Git repoon srv/salt/ hakemisto ja työstettiin sinne top file ja moduulit, moduulien sisälle init.sls.
+
+```
+top.sls
+ssh_pkg
+  init.sls 
+ufw_pkg
+  init.sls
+ufw_allow_ssh
+ufw_enable
+ufw_service
+ufw_default_in
+ufw_default_out
+```
+
+Testattiin, että top file pystyi ajata:
+
+```
+sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply
+```
 
 
-Jatkettiin tekemään template master ja minion koneelle:
 
-Asentaa Dedbianin ja niihin Saltin että gitin.
 
-Ne kommunikoivat toisten kanssa, pitää lähettää minionin avain masterille `sudo systemctlr restart minion.service` minion koneella ja hyväksyä masterilla `sudo salt-key -A`.
+
+
+## Tekijät
+
+Choy
+
+Tomas
 
 ## Lähteet
 
