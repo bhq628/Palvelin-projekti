@@ -66,7 +66,6 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "shared/", "/home/vagrant/shared", create: true
   config.vm.box = "debian/bookworm64"
     
-  # Salt Master machine
   config.vm.define "master" do |master|
     master.vm.hostname = "salt-master"
     master.vm.network "private_network", ip: "192.168.88.10"
@@ -78,7 +77,6 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Salt Minion machine
   config.vm.define "minion" do |minion|
     minion.vm.hostname = "salt-minion"
     minion.vm.network "private_network", ip: "192.168.88.11"
@@ -288,9 +286,9 @@ sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply
 
 ## Tekijät
 
-Choy
+Choy. GitHub https://github.com/KFCkingoo
 
-Tomas
+Tomas. GitHub https://github.com/bhq628
 
 ## Lähteet
 
@@ -298,7 +296,11 @@ Git asennusohje https://git-scm.com/install/windows
 
 Salt asennusohje https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/index.html
 
-Tero Karvisen oppimateriaalit
+Tero Karvinen 2025. Palvelinten Hallinta. https://terokarvinen.com/palvelinten-hallinta/
+
+Tero Karvinen 2018. Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
+
+Tero Karvinen 2021. Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
 
 Vagrant asennusohje https://developer.hashicorp.com/vagrant/docs/installation
 
