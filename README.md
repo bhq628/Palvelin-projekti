@@ -1,6 +1,9 @@
 # Palvelin-projekti
 
-Vagrantin avulla pystymme helposti luomaan Salt arkkitehtuurin ja tehdä hallintaa keskitetysti.
+Vagrantin avulla pystymme helposti luomaan Salt arkkitehtuurin ja asettaa minion-koneelle palomuuri asetukset keskitetyllä hallituksella.
+
+<img width="450" height="400" alt="kuva" src="https://github.com/user-attachments/assets/eb039dbb-782d-437a-907d-79144dd266bf" />
+
 
 ## Vaatimukset ja asennusohjeet
 
