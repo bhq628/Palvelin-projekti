@@ -375,7 +375,7 @@ Kopioitiin Git repon Salt hakemisto master-koneelle ja ajettiin top file:
 sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
 sudo salt '*' state.apply
 ```
-<img width="605" height="850" alt="Näyttökuva (83)" src="https://github.com/user-attachments/assets/382174e0-989e-40ec-a62c-fb3e1dfc38b5" />
+<img width="605" height="900" alt="Näyttökuva (83)" src="https://github.com/user-attachments/assets/382174e0-989e-40ec-a62c-fb3e1dfc38b5" />
 <img width="605" height="850" alt="Näyttökuva (84)" src="https://github.com/user-attachments/assets/5e6a9ca2-efa4-4448-a5bf-acc067b0357e" />
 <img width="605" height="850" alt="Näyttökuva (85)" src="https://github.com/user-attachments/assets/639c473a-b5cc-4c6d-aee2-47b98454e9d2" />
 
