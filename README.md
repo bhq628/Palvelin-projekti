@@ -246,10 +246,10 @@ sudo systemctl restart salt-minion.service
 vagrant ssh master
 sudo salt-key -A
 ssh-keygen
-cat .ssh/id_rsa.pub #kopioi GitHubiin
+cat .ssh/id_rsa.pub #kopioi avain GitHubiin
 git clone git@github.com:bhq628/Palvelin-projekti.git
 sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
-sudo salt '*' state.apply
+sudo salt '*' state.apply #moduulin ajo minioniin
 ```
 
 
