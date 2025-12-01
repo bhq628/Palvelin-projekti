@@ -1,6 +1,0 @@
-Tässä mahdollisia vika-aiheita, mistä puhua:  
-
-Kuinka aluksi väärinkirjoitetut tiedostot ufw-pkg, ufw-services, ufw-enable kirjoittaessa oikein alaviivalla,  
-jotenkin muutti oikeudet toiselta kehittäjältä.  
-Tämä kyseinen toinen ei tämän jälkeen pystynyt muokkaamaan näitä tiedostoja.
-
