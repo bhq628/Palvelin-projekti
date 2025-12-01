@@ -273,15 +273,171 @@ ufw_default_in
 ufw_default_out
 ```
 
-Testattiin, että top file pystyi ajata:
+Testattiin moduulien idempotentti ennen kuin lisättiin ne top.sls tiedostoon.
+
+Testattiin top.sls idempotentti:
 
 ```
-sudo salt-call --local --file-root /Palvelin-projekti/srv/salt/ state.apply
+sudo salt-call --local --file-root Palvelin-projekti/srv/salt state.apply
 ```
 
+local:
+----------
+          ID: ssh
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 16:07:33.214983
+    Duration: 13.545 ms
+     Changes:
+----------
+          ID: ufw
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 16:07:33.229037
+    Duration: 5.426 ms
+     Changes:
+----------
+          ID: ufw_allow_ssh
+    Function: cmd.run
+        Name: ufw allow ssh
+      Result: True
+     Comment: unless condition is true
+     Started: 16:07:33.234526
+    Duration: 284.486 ms
+     Changes:
+----------
+          ID: ufw_enable
+    Function: cmd.run
+        Name: ufw --force enable
+      Result: True
+     Comment: unless condition is true
+     Started: 16:07:33.519134
+    Duration: 51.408 ms
+     Changes:
+----------
+          ID: ufw_service
+    Function: service.running
+        Name: ufw
+      Result: True
+     Comment: The service ufw is already running
+     Started: 16:07:33.570640
+    Duration: 26.13 ms
+     Changes:
+----------
+          ID: ufw_default_in
+    Function: cmd.run
+        Name: ufw default deny incoming
+      Result: True
+     Comment: unless condition is true
+     Started: 16:07:33.596864
+    Duration: 52.08 ms
+     Changes:
+----------
+          ID: ufw_default_out
+    Function: cmd.run
+        Name: ufw default allow outgoing
+      Result: True
+     Comment: unless condition is true
+     Started: 16:07:33.649039
+    Duration: 51.268 ms
+     Changes:
 
+Summary for local
+------------
+Succeeded: 7
+Failed:    0
+------------
 
+top.sls oli idempotentti.
 
+Kopioitiin Git repon Salt hakemisto master-koneelle ja ajettiin top file:
+
+```
+sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
+sudo salt '*' state.apply
+```
+<img width="605" height="850" alt="Näyttökuva (83)" src="https://github.com/user-attachments/assets/382174e0-989e-40ec-a62c-fb3e1dfc38b5" />
+<img width="605" height="850" alt="Näyttökuva (84)" src="https://github.com/user-attachments/assets/5e6a9ca2-efa4-4448-a5bf-acc067b0357e" />
+<img width="605" height="850" alt="Näyttökuva (85)" src="https://github.com/user-attachments/assets/639c473a-b5cc-4c6d-aee2-47b98454e9d2" />
+
+Top file ajoi moduulit minionille.
+
+Testattiin idempotentti:
+
+salt-minion:
+----------
+          ID: ssh
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 16:17:09.062821
+    Duration: 13.359 ms
+     Changes:
+----------
+          ID: ufw
+    Function: pkg.installed
+      Result: True
+     Comment: All specified packages are already installed
+     Started: 16:17:09.076709
+    Duration: 5.208 ms
+     Changes:
+----------
+          ID: ufw_allow_ssh
+    Function: cmd.run
+        Name: ufw allow ssh
+      Result: True
+     Comment: unless condition is true
+     Started: 16:17:09.081983
+    Duration: 277.233 ms
+     Changes:
+----------
+          ID: ufw_enable
+    Function: cmd.run
+        Name: ufw --force enable
+      Result: True
+     Comment: unless condition is true
+     Started: 16:17:09.359337
+    Duration: 50.767 ms
+     Changes:
+----------
+          ID: ufw_service
+    Function: service.running
+        Name: ufw
+      Result: True
+     Comment: The service ufw is already running
+     Started: 16:17:09.410200
+    Duration: 27.706 ms
+     Changes:
+----------
+          ID: ufw_default_in
+    Function: cmd.run
+        Name: ufw default deny incoming
+      Result: True
+     Comment: unless condition is true
+     Started: 16:17:09.438001
+    Duration: 50.348 ms
+     Changes:
+----------
+          ID: ufw_default_out
+    Function: cmd.run
+        Name: ufw default allow outgoing
+      Result: True
+     Comment: unless condition is true
+     Started: 16:17:09.488444
+    Duration: 50.632 ms
+     Changes:
+
+Summary for salt-minion
+------------
+Succeeded: 7
+Failed:    0
+------------
+Total states run:     7
+Total run time: 475.253 ms
+
+Moduuli on idempotentti.
 
 
 ## Tekijät
