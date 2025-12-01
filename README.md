@@ -207,10 +207,32 @@ Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key
 
 Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki
 
+<img width="572" height="498" alt="Näyttökuva (77)" src="https://github.com/user-attachments/assets/39e31e0d-3f13-4221-9c45-ca377b9b1aaa" />
+
+
 Kloonataan git repo master koneelle `git clone git@github.com:bhq628/Palvelin-projekti.git` ja kopioidaan sieltä Salt repo `sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/`
 
 Nyt voidaan ajata moduuli minionille `sudo salt '*' state.apply`
 
+## Keskitetty hallitus tiivistelmä:
+
+```
+vagrant up
+vagrant ssh minion
+sudo systemctl restart salt-minion.service
+vagrant ssh master
+sudo salt-key -A
+ssh-keygen
+cat .ssh/id_rsa.pub #kopioi GitHubiin
+git clone git@github.com:bhq628/Palvelin-projekti.git
+sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
+sudo salt '*' state.apply
+```
+
+
+Kehitettävää:
+
+GitFS toiminto, niin voi ajata moduulin suoraan git reposta minioniin
 
 
 ## Ongelmat:
