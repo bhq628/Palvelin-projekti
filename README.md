@@ -1,5 +1,6 @@
 # Palvelin-projekti
 
+Vagrantin avulla pystymme helposti luomaan Salt arkkitehtuurin ja tehdä hallintaa keskitetysti.
 
 ## Vaatimukset ja asennusohjeet
 
@@ -259,7 +260,7 @@ Kehitettävää:
 
 GitFS toiminto, niin voi ajata moduulin suoraan git reposta minioniin.
 
-Vähemmän cmd.run tiloja niin moduuli olisi nopempia ajamaan.
+Vähemmän cmd.run tiloja niin moduuli olisi nopeampi suorittaa.
 
 ## Ongelmat:
 
@@ -267,11 +268,9 @@ Tuli ongelmia gitin kanssa. Toisella käyttäjällä ei ollut oikeuksia muokata 
 
 ufw_enable-moduulissa tuli virheitä. Huomattiin, että moduuliin oli kirjoitettu enable 2 kertaa. Korjattiin poistamalla ylimääräinen enable komento.
 
-Idempotenttitestauksessa toisellä käyttäjällä tuli virheilmoitus:
+Idempotentin testauksessa toisellä käyttäjällä tuli virheilmoitus:
 
 ```
-vagrant@salt-master:~$ sudo salt '*' state.apply
-
 salt-minion:
 
 
@@ -283,7 +282,7 @@ salt-minion:
  
 ```
 
-Ei selvä jos virhe korjaantui ajan myötä vai käyttäjän `sudo apt update` komennon jälkeen. Ei saatu samaa virheilmoitusta jatkuvilla testauksilla.
+Ei ollut selvä jos virhe korjaantui ajan myötä vai käyttäjän `sudo apt update` komennon jälkeen. Ei saatu samaa virheilmoitusta jatkuvilla testauksilla.
 
 
 
