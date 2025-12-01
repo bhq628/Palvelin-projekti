@@ -267,6 +267,26 @@ Tuli ongelmia gitin kanssa. Toisella käyttäjällä ei ollut oikeuksia muokata 
 
 ufw_enable-moduulissa tuli virheitä. Huomattiin, että moduuliin oli kirjoitettu enable 2 kertaa. Korjattiin poistamalla ylimääräinen enable komento.
 
+Idempotenttitestauksessa toisellä käyttäjällä tuli virheilmoitus:
+
+```
+vagrant@salt-master:~$ sudo salt '*' state.apply
+
+salt-minion:
+
+
+    Minion did not return. [No response]
+
+    The minions may not have all finished running and any remaining minions will return upon completion. To look up the return data for this job later, run the following command:
+ 
+    salt-run jobs.lookup_jid 20251201134850839736
+ 
+```
+
+Ei selvä jos virhe korjaantui ajan myötä vai käyttäjän `sudo apt update` komennon jälkeen. Ei saatu samaa virheilmoitusta jatkuvilla testauksilla.
+
+
+
 
 
 ongelmia gitin kanssa, tehtyä kansiot gitiin. Collaborator menetti oikeudet luoda kansioita git pullin kautta sudoeditillä muokata tiedostoja. Yritettiin korjata ongelma muokkaamalla kansioiden oikeuksia, mutta se ei korjanut ongelmia ja jopa esti pääsyn salt hakemistolle. Poistettiin repo koneesta ja kloonattiin uudelleen. Sudoeditin ongelma ohitettiin käyttämällä nano tekstieditoria.
