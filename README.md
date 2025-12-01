@@ -160,7 +160,7 @@ git clone git@github.com:bhq628/Palvelin-projekti.git
 sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
 sudo salt '*' state.apply    #moduulin ajo minioniin
 ```
-
+https://video.haaga-helia.fi/media/Palvelin_projekti_esitys_v2/0_feubi3lt
 
 ## Kehitettävää:
 
