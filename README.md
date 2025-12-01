@@ -207,7 +207,9 @@ Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key
 
 Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki
 
-Kloonataan repo master koneelle `git clone git@github.com:bhq628/Palvelin-projekti.git`
+Kloonataan git repo master koneelle `git clone git@github.com:bhq628/Palvelin-projekti.git` ja kopioidaan sieltä Salt repo `sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/`
+
+Nyt voidaan ajata moduuli minionille `sudo salt '*' state.apply`
 
 
 
