@@ -1,6 +1,5 @@
 # Palvelin-projekti
 
-Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi ja keskitetyn hallinnan master koneella.
 
 ## Vaatimukset ja asennusohjeet
 
