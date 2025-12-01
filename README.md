@@ -4,6 +4,8 @@ Vagrantin avulla pystymme helposti luomaan Salt arkkitehtuurin ja asettaa minion
 
 <img width="450" height="400" alt="kuva" src="https://github.com/user-attachments/assets/eb039dbb-782d-437a-907d-79144dd266bf" />
 
+>_Kuva luotu Canvassa. Palomuurin logo Free SVG vector files CC0 1.0 Universal_
+
 
 ## Vaatimukset ja asennusohjeet
 
@@ -15,13 +17,13 @@ Git https://git-scm.com/install/windows
 
 Vagrant https://developer.hashicorp.com/vagrant/docs/installation
 
-## Ohje
+## Käyttöönotto
 
 Vagrant skriptillä voidaan kätevästi luoda master minion arkkitehtuuri.
 
-Skriptiin on luotu valmiit asetukset ja hyvän alun tähän projektiin.
+Skriptiin on luotu valmiit asetukset ja hyvän alustan tähän projektiin.
 
-Tämä voidaan lisätä Vagrantfile tiedostoon:
+Vagrantfile alusta, voidaan lisätä tiedostoon:
 
 ```
 # -*- mode: ruby -*-
@@ -90,7 +92,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Lisättyä skriptin Vagrantfile tiedostoon, ajetaan se 
+Vagrantfile skripti ajataan komennolla: 
 
 `vagrant up`
 
