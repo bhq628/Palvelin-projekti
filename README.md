@@ -261,21 +261,29 @@ Palomuurin asennus ja portin enabloiminen päätyi ylimääräiseksi työksi, ko
 Luotiin Git repoon srv/salt/ hakemisto ja työstettiin sinne top file ja moduulit, kaikkien moduulien sisälle init.sls.
 
 ```
-top.sls
-ssh_pkg
-  init.sls 
-ufw_pkg
-  init.sls
-ufw_allow_ssh
-  init.sls
-ufw_enable
-  init.sls
-ufw_service
-  init.sls
-ufw_default_in
-  init.sls
-ufw_default_out
-  init.sls
+.
+├── LICENSE
+├── README.md
+├── images
+│   ├── Win11-salt.png
+│   └── test.txt
+└── srv
+    └── salt
+        ├── ssh_pkg
+        │   └── init.sls
+        ├── top.sls
+        ├── ufw_allow_ssh
+        │   └── init.sls
+        ├── ufw_default_in
+        │   └── init.sls
+        ├── ufw_default_out
+        │   └── init.sls
+        ├── ufw_enable
+        │   └── init.sls
+        ├── ufw_pkg
+        │   └── init.sls
+        └── ufw_service
+            └── init.sls
 ```
 
 Testattiin moduulien idempotentti ennen kuin lisättiin ne top.sls tiedostoon:
