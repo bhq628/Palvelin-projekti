@@ -185,34 +185,58 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Lisättyä skriptin Vagrantfile tiedostoon, ajetaan se `vagrant up` komennolla.
+Lisättyä skriptin Vagrantfile tiedostoon, ajetaan se 
+
+`vagrant up`
 
 Nyt on master ja minion kone luotu. 
 
-Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin lisää minion koneita.
+Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin lisää minion koneita. Koneet kommunikoivat toistensa kanssa, minion kone saa yhteyden master koneelle. Vaaditaan minion avaimen hyväksymisen master koneella.
 
-Koneet kommunikoivat toistensa kanssa, nyt vaaditaan minion avaimen hyväksymisen master koneella.
+Kirjaudutaan minion koneelle 
 
-Kirjaudutaan minion koneelle `vagrant ssh minion` ja käynnistetään salt-minion.service `sudo systemctl restart salt-minion.service`
+`vagrant ssh minion` 
+
+Käynnistetään salt-minion.service 
+
+`sudo systemctl restart salt-minion.service`
 
 Nyt master koneella voidaan hyväksyä minion avain.
 
-Kirjaudutaan masterille `vagrant ssh master` ja hyväksytään minion avain `sudo salt-key -A`
+Kirjaudutaan masterille 
 
-Git on jo valmiina asennettu skriptin kautta.
+`vagrant ssh master` 
 
-Git repon kloonaamista varten tarvitaan ssh julkinen avain `ssh-keygen` ja sitten kopioidaan julkinen avain `cat .ssh/id_rsa.pub`
+Hyväksytään minion avain 
 
-Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key
+`sudo salt-key -A`
 
-Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki
+Git on jo valmiina asennettu skriptin kautta. Git repon kloonaamista varten tarvitaan ssh julkinen avain 
+
+`ssh-keygen`
+
+Kopioidaan julkinen avain 
+
+`cat .ssh/id_rsa.pub`
+
+Hyväksytään avain GitHubissa Settings -> SSH and GPG Keys -> New SSH Key.
+
+Nyt voidaan kloonata tämä repo klikkaamalla vihreetä painiketta Code -> SSH ja kopioidaan linkki:
 
 <img width="572" height="498" alt="Näyttökuva (77)" src="https://github.com/user-attachments/assets/39e31e0d-3f13-4221-9c45-ca377b9b1aaa" />
 
 
-Kloonataan git repo master koneelle `git clone git@github.com:bhq628/Palvelin-projekti.git` ja kopioidaan sieltä Salt repo `sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/`
+Kloonataan git repo master koneelle 
 
-Nyt voidaan ajata moduuli minionille `sudo salt '*' state.apply`
+`git clone git@github.com:bhq628/Palvelin-projekti.git` 
+
+Kopioidaan sieltä Salt repo 
+
+`sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/`
+
+Nyt voidaan ajata moduuli minionille 
+
+`sudo salt '*' state.apply`
 
 ## Keskitetty hallitus tiivistelmä:
 
