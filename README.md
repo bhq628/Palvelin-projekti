@@ -193,29 +193,28 @@ Nyt on master ja minion kone luotu.
 
 Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin lisää minion koneita. Koneet kommunikoivat toistensa kanssa, minion kone saa yhteyden master koneelle. Vaaditaan minion avaimen hyväksymisen master koneella.
 
-Kirjaudutaan minion koneelle 
+Kirjaudutaan minion koneelle: 
 
 `vagrant ssh minion` 
 
-Käynnistetään salt-minion.service 
+Käynnistetään salt-minion.service:
 
 `sudo systemctl restart salt-minion.service`
 
 Nyt master koneella voidaan hyväksyä minion avain.
 
-Kirjaudutaan masterille 
+Kirjaudutaan masterille ja hyväksytään minion avain:
 
-`vagrant ssh master` 
+```
+vagrant ssh master
+sudo salt-key -A
+```
 
-Hyväksytään minion avain 
-
-`sudo salt-key -A`
-
-Git on jo valmiina asennettu skriptin kautta. Git repon kloonaamista varten tarvitaan ssh julkinen avain 
+Git on jo valmiina asennettu skriptin kautta. Git repon kloonaamista varten tarvitaan ssh julkinen avain: 
 
 `ssh-keygen`
 
-Kopioidaan julkinen avain 
+Kopioidaan julkinen avain:
 
 `cat .ssh/id_rsa.pub`
 
