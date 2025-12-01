@@ -1,6 +1,16 @@
 # Palvelin-projekti
-Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi.
+Projekti, jossa teemme Saltilla palomuurin asennusta idempotenttiseksi ja keskitetyn hallinnan master koneella.
 
+
+## Vaatimukset ja asennusohjeet
+
+Virtualbox https://www.virtualbox.org/manual/topics/installation.html
+
+Salt https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/index.html
+
+Git https://git-scm.com/install/windows
+
+Vagrant https://developer.hashicorp.com/vagrant/docs/installation
 
 ## Tiivistelmä / projektinkulku
 
@@ -16,10 +26,6 @@ Palomuurin konfigurointi
 
 topfile ja lopputestaus
 
-## Uuden virtuaalikoneen luonti vagrantilla
-
-(Miten VirtualBox)
-(Miten Vagrant asennettiin?)
 
 Ensin Powershellillä hakemistoon C:\User\vagrantprojeks\ (ei ole oikea polku ehkä)
 
