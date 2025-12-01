@@ -258,7 +258,7 @@ Enabloitiin palomuuri:
 
 Palomuurin asennus ja portin enabloiminen päätyi ylimääräiseksi työksi, koska luotiin myöhemmin moduulit jotka tekivät samat komennot.
 
-Luotiin Git repoon srv/salt/ hakemisto ja työstettiin sinne top file ja moduulit, moduulien sisälle init.sls.
+Luotiin Git repoon srv/salt/ hakemisto ja työstettiin sinne top file ja moduulit, kaikkien moduulien sisälle init.sls.
 
 ```
 top.sls
