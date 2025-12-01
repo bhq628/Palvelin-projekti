@@ -193,6 +193,11 @@ Siihen pystyy myös luoda lisää hallitettavia koneita lisäämällä skriptiin
 
 Koneet kommunikoivat toistensa kanssa, nyt vaaditaan minion avaimen hyväksymisen master koneella.
 
+Kirjaudutaan minion koneelle `vagrant ssh minion` ja käynnistetään salt-minion.service `sudo systemctl restart salt-minion.service`
+
+Nyt master koneella voidaan hyväksyä minion avain.
+
+Kirjaudutaan masterille `vagrant ssh master` ja hyväksytään minion avain `sudo salt-key -A`
 
 
 
@@ -213,5 +218,15 @@ Ne kommunikoivat toisten kanssa, pitää lähettää minionin avain masterille `
 
 ## Lähteet
 
-Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
+Git asennusohje https://git-scm.com/install/windows
+
+Salt asennusohje https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/index.html
+
 Tero Karvisen oppimateriaalit
+
+Vagrant asennusohje https://developer.hashicorp.com/vagrant/docs/installation
+
+Virtualbox https://www.virtualbox.org/manual/topics/installation.html
+
+
+
