@@ -454,7 +454,7 @@ Failed:    0
 Total states run:     7
 Total run time: 475.253 ms
 
-Moduuli on idempotentti.
+Moduuli on idempotentti ja lopputulos hyväksyttävä.
 
 
 ## Tekijät
