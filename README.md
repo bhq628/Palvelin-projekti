@@ -214,5 +214,13 @@ Ne kommunikoivat toisten kanssa, pitää lähettää minionin avain masterille `
 
 ## Lähteet
 
-Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
+
+Virtualbox asennus https://www.virtualbox.org/manual/topics/installation.html
+
+Salt asennus https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/index.html
+
+Git asennus https://git-scm.com/install/windows
+
+Vagrant asennus https://developer.hashicorp.com/vagrant/docs/installation
+
 Tero Karvisen oppimateriaalit
