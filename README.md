@@ -243,6 +243,7 @@ Nyt voidaan ajata moduuli minionille
 vagrant up
 vagrant ssh minion
 sudo systemctl restart salt-minion.service
+exit
 vagrant ssh master
 sudo salt-key -A
 ssh-keygen
