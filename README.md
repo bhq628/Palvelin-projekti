@@ -267,13 +267,30 @@ ssh_pkg
 ufw_pkg
   init.sls
 ufw_allow_ssh
+  init.sls
 ufw_enable
+  init.sls
 ufw_service
+  init.sls
 ufw_default_in
+  init.sls
 ufw_default_out
+  init.sls
 ```
 
-Testattiin moduulien idempotentti ennen kuin lisättiin ne top.sls tiedostoon.
+Testattiin moduulien idempotentti ennen kuin lisättiin ne top.sls tiedostoon:
+
+```
+base:
+  '*':
+    - ssh_pkg
+    - ufw_allow_ssh
+    - ufw_pkg
+    - ufw_enable
+    - ufw_service
+    - ufw_default_in
+    - ufw_default_out
+```
 
 Testattiin top.sls idempotentti:
 
