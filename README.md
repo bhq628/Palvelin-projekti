@@ -369,7 +369,7 @@ Failed:    0
 
 top.sls oli idempotentti.
 
-Kopioitiin Git repon Salt hakemisto master-koneelle ja ajettiin top file:
+Kopioitiin Git repon Salt hakemisto master-koneelle ja ajettiin top file minionille:
 
 ```
 sudo cp -r Palvelin-projekti/srv/salt/ /srv/salt/
