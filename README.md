@@ -89,6 +89,7 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
+> **Note:** Tämä skripti sisältää koodia, joka on luotu käyttämällä **Google Copilot**.
 
 Vagrantfile skripti ajataan komennolla: 
 
